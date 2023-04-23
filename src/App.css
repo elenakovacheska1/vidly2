@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: large;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url("./media/movies1.jpg") repeat;
+  background-repeat: repeat;
+  background-color: #abbaab;
+}
+
+.MainContainer {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 1%;
+}
+
+@media only screen and (max-width: 780px) {
+  .MainContainer, .container {
+    width: 111%;
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 767px) {
+  .MainContainer,
+  .container {
+    width: 140%;
+  }
+}
