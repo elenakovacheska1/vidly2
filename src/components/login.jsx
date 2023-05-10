@@ -51,29 +51,33 @@ class Login extends Component {
 		this.setState({ [fieldValid]: fieldValidValue, errors }, this.validateForm);
 	};
 
-	sendLoginToDb = async () => {
+	login = () => {
 		const { username, password } = this.state;
-		try {
-			const { data: jwt } = await axios.post(`${baseUrl}:${port}${authUrl}`, {
-				email: username,
-				password,
-			});
-			saveToLocalDb("token", jwt);
-			window.location = "/movies";
-		} catch (ex) {
-			const errors = { ...this.state.errors };
-			if (ex.response && ex.response.status === 400) {
-				errors.username = ex.response.data;
-			} else {
-				errors.username = "Something went wrong";
-			}
-			this.setState({ errors });
+		if (!username || !password) return;
+		const currentUser = {
+			email: username,
+			password: password,
+		};
+		const allUsersStr = localStorage.getItem("allUsers");
+		if (!allUsersStr) {
+			window.location = "/register";
+			return;
 		}
+		const allUsersObj = JSON.parse(allUsersStr);
+		const userFound = allUsersObj.find(
+			(user) => user.email === currentUser.email
+		);
+		if (!userFound) {
+			window.location = "/register";
+			return;
+		}
+		localStorage.setItem("user", JSON.stringify({ name: userFound.name }));
 	};
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.sendLoginToDb();
+		this.login();
+		window.location = "/movies";
 	};
 
 	handleChange = (e) => {

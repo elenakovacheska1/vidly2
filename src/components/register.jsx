@@ -69,32 +69,30 @@ class Register extends Component {
 		this.setState({ [fieldValid]: fieldValidValue, errors }, this.validateForm);
 	};
 
-	saveUserToDb = async () => {
+	saveUserToLS = () => {
 		const { username, password, name } = this.state;
-		const newUser = {
+		if (!username || !password || !name) return;
+		localStorage.setItem("user", JSON.stringify({ name: name }));
+		const allUsersStr = localStorage.getItem("allUsers");
+		const currentUser = {
+			name: name,
 			email: username,
-			password,
-			name,
+			password: password,
 		};
-		try {
-			const response = await axios.post(
-				`${baseUrl}:${port}${usersUrl}`,
-				newUser
-			);
-			saveToLocalDb("token", response.headers["x-auth-token"]);
-			window.location = "/movies";
-		} catch (ex) {
-			if (ex.response && ex.response.status === 400) {
-				const errors = { ...this.state.errors };
-				errors.username = ex.response.data;
-				this.setState({ errors });
-			}
+
+		let users = [];
+		if (!allUsersStr) {
+			users.push(currentUser);
+		} else {
+			users = [...JSON.parse(allUsersStr), currentUser];
 		}
+		localStorage.setItem("allUsers", JSON.stringify(users));
 	};
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.saveUserToDb();
+		this.saveUserToLS();
+		window.location = "/movies";
 	};
 
 	handleChange = (e) => {

@@ -9,7 +9,6 @@ import Customers from "./components/customers";
 import Rentals from "./components/rentals";
 import NotFound from "./common/notFound";
 import Movie from "./components/movie";
-import Profile from "./components/profile";
 import Login from "./components/login";
 import Logout from "./components/logout";
 import Register from "./components/register";
@@ -37,10 +36,9 @@ class App extends Component {
 		return (
 			<React.Fragment>
 				<ToastContainer />
-				<NavBar user={user} />
+				<NavBar />
 				<Chatbot />
 				<SocialMediaIcons />
-				{/* <UserRatingScorecard /> */}
 				<div className="container">
 					<Routes>
 						<Route path="/profile" element={<Movies />} />
