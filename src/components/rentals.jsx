@@ -11,7 +11,7 @@ class Rentals extends Component {
 
 	getMovies = async (searchText) => {
 		const movies = await axios.get(
-			`http://www.omdbapi.com/?i=tt3896198&apikey=44592b2c&s=${searchText}`
+			`https://www.omdbapi.com/?i=tt3896198&apikey=44592b2c&s=${searchText}`
 		);
 		this.setState({ movies: movies.data.Search });
 	};
