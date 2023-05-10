@@ -17,7 +17,6 @@ class Rentals extends Component {
 	};
 
 	render() {
-		console.log(this.state.movies);
 		const { movies } = this.state;
 		return (
 			<React.Fragment>
