@@ -94,19 +94,20 @@ const NavBar = () => {
 								Logout
 							</button>
 						</li>
-						<li className="nav-item">
-							{currentUser ? (
-								<div className="alert alert-success" role="alert">
-									{`Welcome ${currentUser}!`}
-								</div>
-							) : (
-								<div className="alert alert-success" role="alert">
-									{`Welcome User!`}
-								</div>
-							)}
-						</li>
 					</React.Fragment>
 				)}
+
+				<li className="nav-item">
+					{currentUser ? (
+						<div className="alert alert-success" role="alert">
+							{`Welcome ${currentUser}!`}
+						</div>
+					) : (
+						<div className="alert alert-success" role="alert">
+							{`Welcome User!`}
+						</div>
+					)}
+				</li>
 			</ul>
 		</nav>
 	);

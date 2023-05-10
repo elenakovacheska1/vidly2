@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import "./css/SocialMedia.css";
-import ProtectedRoute from "./common/protectedRoute";
 import NavBar from "./common/navBar";
 import Movies from "./components/movies";
 import Customers from "./components/customers";
@@ -52,10 +51,7 @@ class App extends Component {
 						<Route path="/movies/:id" element={<Movie />} />
 						<Route path="/movies" element={<Movies />} />
 						<Route path="/customers" element={<Customers />} />
-						<Route
-							path="/rentals"
-							element={<ProtectedRoute user={user} component={<Rentals />} />}
-						/>
+						<Route path="/rentals" element={<Rentals />} />
 						<Route path="/" element={<Navigate to="/movies" />} />
 						<Route path="/not-found" element={<NotFound />} />
 						<Route path="*" element={<NotFound />} />

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../css/movieCard.css";
-import { toast } from "react-toastify";
 
 class MovieCard extends Component {
 	state = {};
@@ -16,19 +15,10 @@ class MovieCard extends Component {
 			<React.Fragment>
 				<div className="containerMovie">
 					<div className="movie-card">
-						<div className="movie-header" style={this.styles}>
-							<div className="header-icon-container">
-								<a href="#">
-									<i class="material-icons header-icon"></i>
-								</a>
-							</div>
-						</div>
+						<div className="movie-header" style={this.styles}></div>
 						<div className="movie-content">
 							<div className="movie-content-header">
-								<a href="#">
-									<h3 className="movie-title">{this.props.title}</h3>
-								</a>
-								<div className="imax-logo"></div>
+								<h3 className="movie-title">{this.props.title}</h3>
 							</div>
 							<div className="movie-info">
 								<div className="info-section">
