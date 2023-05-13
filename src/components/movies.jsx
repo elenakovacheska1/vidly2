@@ -8,13 +8,9 @@ import ContactForm from "../common/contactForm";
 import _ from "lodash";
 import { NavLink } from "react-router-dom";
 import Search from "./search";
-import axios from "axios";
-import config from "../utils/config.json";
 import { toast } from "react-toastify";
-import GoogleMaps from "../common/googleMaps";
 import { getMovies, deleteMovie } from "../services/fakeMovieService";
 
-const { baseUrl, port, moviesUrl } = config;
 class Movies extends Component {
 	state = {
 		movies: [],
@@ -249,7 +245,6 @@ class Movies extends Component {
 				</div>
 				<UserRatingScorecard />
 				<ContactForm />
-				<GoogleMaps />
 			</div>
 		);
 	}

@@ -3,20 +3,10 @@ import React from "react";
 const SocialMediaIcons = () => {
 	return (
 		<div className="icon-bar">
-			<a
-				href="https://www.facebook.com/kovacheska.elena/"
-				target="_blank"
-				className="facebook"
-				rel="noreferrer"
-			>
+			<a href="#" className="facebook" rel="noreferrer">
 				<i className="fa fa-facebook"></i>
 			</a>
-			<a
-				href="https://www.instagram.com/elenakovacheska/"
-				target="_blank"
-				className="instagram"
-				rel="noreferrer"
-			>
+			<a href="#" className="instagram" rel="noreferrer">
 				<i className="fa-brands fa-instagram"></i>
 			</a>
 			<a href="mailto:kovacheskaelena@gmail.com" className="mail">
